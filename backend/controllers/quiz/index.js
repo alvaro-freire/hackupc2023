@@ -3,9 +3,9 @@ const path = require('path')
 
 const leaderboard = []
 
-module.exports = (app) => {
-  app.get('/quiz', (req, res) => {
-    const { dst } = req.query
+module.exports = (app, authenticateJWT) => {
+  app.get('/quiz', authenticateJWT, (req, res) => {
+    const { dst } = req
 
     const rawdata = fs.readFileSync(
       path.join(__dirname, `questions/${dst}.json`)
@@ -19,10 +19,10 @@ module.exports = (app) => {
     res.json(questions)
   })
 
-  app.post('/quiz/:id', (req, res) => {
-    const { dst } = req.query
+  app.post('/quiz/:id', authenticateJWT, (req, res) => {
+    const { dst, nickname } = req
     const { id } = req.params
-    const { answer, nickname } = req.body
+    const { answer } = req.body
 
     const rawdata = fs.readFileSync(
       path.join(__dirname, `questions/${dst}.json`)
@@ -32,8 +32,6 @@ module.exports = (app) => {
       return q.id.toString() === id
     })
     const result = question.correct === answer.toString()
-    console.log('answer', answer)
-    console.log('correct', question.correct)
 
     const correct = questions.find((q) => {
       return q.id.toString() === id
