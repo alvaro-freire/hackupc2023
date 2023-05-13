@@ -1,7 +1,8 @@
 const express = require('express')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
-
+const http = require('http')
+const { Server } = require('socket.io')
 const loginContoller = require('./controllers/login')
 const chatrouletteContoller = require('./controllers/chatroulette')
 const quizContoller = require('./controllers/quiz')
@@ -13,6 +14,11 @@ const app = express()
 app.use(bodyParser.json())
 app.use(morgan('tiny'))
 
+const chatSockets = require('./chatSockets')
+const server = http.createServer(app)
+const io = new Server(server)
+chatSockets(io)
+
 app.get('/', (req, res) => res.send('Welcome everyone!'))
 
 loginContoller(app)
@@ -21,6 +27,6 @@ quizContoller(app, authenticateJWT)
 placesContoller(app, authenticateJWT)
 transportContoller(app, authenticateJWT)
 
-app.listen(3000, function () {
+app.listen(process.env.APP_PORT || 3000, function () {
   console.log('Vueling backend listening on http://localhost:3000')
 })
