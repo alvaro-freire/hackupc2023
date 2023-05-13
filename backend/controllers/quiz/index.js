@@ -2,8 +2,6 @@ const fs = require('fs')
 const path = require('path')
 const { addToLeaderboard, getLeaderboard } = require('./leaderboard')
 
-const leaderboard = []
-
 module.exports = (app, authenticateJWT) => {
   app.get('/quiz', authenticateJWT, (req, res) => {
     const { dst } = req
