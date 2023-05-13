@@ -25,7 +25,7 @@ const ChatInfo: React.FC<IIndividualChatInfo> = ({ name, user }) => {
         <div className={`flex justify-content-center gap-1 ${isHidden ? 'blur-sm' : ''} transition ease-out`}>
           <Image src="/icons/seat.svg" height={15} width={13} alt="user_icon" />
           <span>
-            {user.seat} {user.seatLetter}
+            {user.seat}
           </span>
         </div>
       </div>

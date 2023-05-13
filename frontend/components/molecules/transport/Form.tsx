@@ -53,7 +53,7 @@ const Form: React.FC = () => {
 
       if (!roomId) { throw new Error(); }
 
-      router.push(`/transport/${roomId}`)
+      router.push(`/transport/${roomId}?destination=${destination}&method=${method}`);
 
     } catch {
       console.log('Error on request');

@@ -7,7 +7,7 @@ const MainBody: React.FC = () => {
       <SectionButton navigatePath='/chat/10' name='ChatRoulette' description='Talk to strangers!' />
       <SectionButton navigatePath='/quiz' name='Quiz' description='Show your knowledge to win!' />
       <SectionButton navigatePath='/transport' name='Transport' description='Learn about your destination.' />
-      <SectionButton navigatePath='/places' name='Places' description='Share a ride to your final destination.' />
+      <SectionButton navigatePath='/destinations/bcl' name='Places' description='Share a ride to your final destination.' />
     </div>
   )
 }

@@ -28,8 +28,6 @@ const Login = () => {
 
       const { token } = json;
 
-      console.warn(token);
-      console.warn(seat, nickname);
       credentials.setToken(token);
       credentials.setSeat(seat);
       credentials.setNickname(nickname);
@@ -60,7 +58,6 @@ const Login = () => {
           <input
             type="text"
             onChange={(e) => {
-              console.log(e.target.value);
               setSeat(e.target.value);
             }}
             className="h-8 border-2 rounded-md border-black hover:border-primary focus-visible:border-primary p-3" />
