@@ -15,7 +15,7 @@ module.exports = (app) => {
       if (dst && nickname) {
         users.push({ dst, nickname, seat })
       } else {
-        return res.status(400).json({ message: 'Bad request' })
+        return res.status(404).json({ message: 'User do not exist, create it' })
       }
     }
 
