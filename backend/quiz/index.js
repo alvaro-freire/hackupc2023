@@ -12,18 +12,11 @@ module.exports = (app) => {
     )
     const questions = JSON.parse(rawdata)
 
-    const randomQuestions = []
-    for (let i = 0; i < 5; i++) {
-      const randomIndex = Math.floor(Math.random() * questions.length)
-      randomQuestions.push(questions[randomIndex])
-      questions.splice(randomIndex, 1)
-    }
-
-    randomQuestions.forEach((q) => {
+    questions.forEach((q) => {
       delete q.correct
     })
 
-    res.json(randomQuestions)
+    res.json(questions)
   })
 
   app.post('/quiz/:id', (req, res) => {
@@ -49,10 +42,11 @@ module.exports = (app) => {
     const user = leaderboard.find((u) => u.nickname === nickname)
     if (user) {
       user.points += result ? 5 : -2
+      user.points = Math.max(0, user.points)
     } else {
       leaderboard.push({
         nickname,
-        points: result ? 5 : -2
+        points: result ? 5 : 0
       })
     }
 
