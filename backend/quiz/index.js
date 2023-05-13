@@ -5,14 +5,25 @@ const leaderboard = []
 
 module.exports = (app) => {
   app.get('/quiz', (req, res) => {
-    const { pos, dst } = req.query
+    const { dst } = req.query
 
     const rawdata = fs.readFileSync(
       path.join(__dirname, `questions/${dst}.json`)
     )
     const questions = JSON.parse(rawdata)
 
-    res.json(questions[pos])
+    const randomQuestions = []
+    for (let i = 0; i < 5; i++) {
+      const randomIndex = Math.floor(Math.random() * questions.length)
+      randomQuestions.push(questions[randomIndex])
+      questions.splice(randomIndex, 1)
+    }
+
+    randomQuestions.forEach((q) => {
+      delete q.correct
+    })
+
+    res.json(randomQuestions)
   })
 
   app.post('/quiz/:id', (req, res) => {
@@ -27,20 +38,36 @@ module.exports = (app) => {
     const question = questions.find((q) => {
       return q.id.toString() === id
     })
-    const result = question.correct === answer
+    const result = question.correct === answer.toString()
+    console.log('answer', answer)
+    console.log('correct', question.correct)
 
-    let correct
-    if (!result) {
-      correct = questions.find((q) => {
-        return q.id.toString() === id
-      }).correct
+    const correct = questions.find((q) => {
+      return q.id.toString() === id
+    }).correct
+
+    const user = leaderboard.find((u) => u.nickname === nickname)
+    if (user) {
+      user.points += result ? 5 : -2
+    } else {
+      leaderboard.push({
+        nickname,
+        points: result ? 5 : -2
+      })
     }
+
+    // order leaderboard by points
+    leaderboard.sort((a, b) => {
+      return b.points - a.points
+    })
+
+    const position = leaderboard.findIndex((u) => u.nickname === nickname)
 
     res.json({
       result,
       correct,
-      position: 1,
-      points: 70
+      position: position + 1,
+      points: leaderboard[position].points
     })
   })
 }

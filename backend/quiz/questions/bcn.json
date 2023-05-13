@@ -1,52 +1,72 @@
 [
   {
     "id": 1,
-    "question": "In what year did the construction of the Sagrada Família begin?",
-    "options": [
-      "1982",
+    "text": "In what year did the construction of the Sagrada Família begin?",
+    "answers": [
+      "1882",
       "1926",
       "1811"
     ],
-    "correct": "1982"
+    "correct": "1882"
   },
   {
     "id": 2,
-    "question": "In what year did the construction of the Sagrada Família begin?",
-    "options": [
-      "1982",
-      "1926",
-      "1811"
+    "text": "What is the name of the architect who designed the Sagrada Família?",
+    "answers": [
+      "Antoni Gaudí",
+      "Lluís Domènech i Montaner",
+      "Josep Puig i Cadafalch"
     ],
-    "correct": "1982"
+    "correct": "Antoni Gaudí"
   },
   {
     "id": 3,
-    "question": "In what year did the construction of the Sagrada Família begin?",
-    "options": [
-      "1982",
-      "1926",
-      "1811"
+    "text": "What is the name of the architect who designed the Sagrada Família?",
+    "answers": [
+      "Antoni Gaudí",
+      "Lluís Domènech i Montaner",
+      "Josep Puig i Cadafalch"
     ],
-    "correct": "1982"
+    "correct": "Antoni Gaudí"
   },
   {
     "id": 4,
-    "question": "In what year did the construction of the Sagrada Família begin?",
-    "options": [
-      "1982",
-      "1926",
-      "1811"
+    "text": "What is the name of the architect who designed the Sagrada Família?",
+    "answers": [
+      "Antoni Gaudí",
+      "Lluís Domènech i Montaner",
+      "Josep Puig i Cadafalch"
     ],
-    "correct": "1982"
+    "correct": "Antoni Gaudí"
   },
   {
     "id": 5,
-    "question": "In what year did the construction of the Sagrada Família begin?",
-    "options": [
-      "1982",
-      "1926",
-      "1811"
+    "text": "What is the name of the architect who designed the Sagrada Família?",
+    "answers": [
+      "Antoni Gaudí",
+      "Lluís Domènech i Montaner",
+      "Josep Puig i Cadafalch"
     ],
-    "correct": "1982"
+    "correct": "Antoni Gaudí"
+  },
+  {
+    "id": 6,
+    "text": "What is the name of the architect who designed the Sagrada Família?",
+    "answers": [
+      "Antoni Gaudí",
+      "Lluís Domènech i Montaner",
+      "Josep Puig i Cadafalch"
+    ],
+    "correct": "Antoni Gaudí"
+  },
+  {
+    "id": 7,
+    "text": "What is the name of the architect who designed the Sagrada Família?",
+    "answers": [
+      "Antoni Gaudí",
+      "Lluís Domènech i Montaner",
+      "Josep Puig i Cadafalch"
+    ],
+    "correct": "Antoni Gaudí"
   }
 ]
