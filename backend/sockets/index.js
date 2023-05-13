@@ -1,12 +1,33 @@
 module.exports = (io) => {
   io.on('connection', (socket) => {
-    console.log('client connected')
-    socket.join('myroom')
-    socket.on('message', (message) => {
-      console.log(message)
+    console.log(`client ${socket.id} connected`)
+
+    socket.on('join', (room) => {
+      socket.join(room)
+      socket.transportRoom = room
+      console.log(`client ${socket.id} has joined ${room}`)
     })
-    socket.on('room', (msg) => {
-      io.to('myroom').emit('msg', 'newmsg')
+
+    socket.on('leave', (room) => {
+      socket.leave(room)
+      socket.transportRoom = undefined
+      console.log(`client ${socket.id} has left ${room}`)
+    })
+
+    socket.on('message', (message) => {
+      socket
+        .to(socket.transportRoom)
+        .emit('message', socket.nickname, socket.seat, message)
+    })
+
+    socket.on('set-data', (nickname, seat) => {
+      console.log(`client ${socket.id} set ${nickname} (${seat})`)
+      socket.nickname = nickname
+      socket.seat = seat
+    })
+
+    socket.on('disconnect', () => {
+      console.log(`client ${socket.id} disconnected`)
     })
   })
 

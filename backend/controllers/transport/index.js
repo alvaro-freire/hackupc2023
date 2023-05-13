@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const crypto = require('crypto')
 
 module.exports = (app, authenticateJWT) => {
   app.get('/transport', authenticateJWT, (req, res) => {
@@ -13,12 +14,14 @@ module.exports = (app, authenticateJWT) => {
     res.json(locations)
   })
 
-
   app.post('/transport', authenticateJWT, (req, res) => {
-    const { dst, nickname } = req
     const { location, method } = req.body
 
+    const hash = crypto
+      .createHash('md5')
+      .update(`${location}:${method}`)
+      .digest('hex')
 
+    return res.send({ room: hash })
   })
-
 }
