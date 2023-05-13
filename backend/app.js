@@ -2,6 +2,7 @@ const express = require('express')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 
+const loginContoller = require('./login')
 const chatrouletteContoller = require('./chatroulette')
 const quizContoller = require('./quiz')
 const placesContoller = require('./places')
@@ -13,6 +14,7 @@ app.use(morgan('tiny'))
 
 app.get('/', (req, res) => res.send('Welcome everyone!'))
 
+loginContoller(app)
 chatrouletteContoller(app)
 quizContoller(app)
 placesContoller(app)
