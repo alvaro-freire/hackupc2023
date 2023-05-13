@@ -1,8 +1,8 @@
 import MainHeader from '@/components/atoms/typography/MainHeader'
-import './globals.css'
-import { Inter } from 'next/font/google'
 import MainFooter from '@/components/atoms/typography/MainFooter'
 
+import { Inter } from 'next/font/google'
+import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -18,9 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <MainHeader/>
-        {children}
-        <MainFooter/>
+        <div className="h-full flex flex-col gap-2 pr-4 pl-4 pb-5 ">
+          <MainHeader />
+          {children}
+          <MainFooter />
+        </div>
       </body>
     </html>
   )
