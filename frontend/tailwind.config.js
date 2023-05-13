@@ -11,7 +11,8 @@ module.exports = {
       secondary: '#e0c308',
       accent: '#fef8cd',
       gray: '#666666',
-      darkgray: '#dddddd'
+      darkgray: '#dddddd',
+      white: '#ffffff'
     },
     extend: {
       backgroundImage: {

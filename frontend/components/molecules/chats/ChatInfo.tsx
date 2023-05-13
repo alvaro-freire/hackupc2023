@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 
 import { IIndividualChatInfo } from '@/types/chat.types';
-import Button from '../atoms/buttons/button';
+import Button from '@/components/atoms/buttons/button';
 
 const ChatInfo: React.FC<IIndividualChatInfo> = ({ name, user }) => {
   const [isHidden, setHidden] = useState<boolean>(true);

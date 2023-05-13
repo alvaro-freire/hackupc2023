@@ -1,7 +1,7 @@
 import React from 'react';
-import ChatInfo from '@/components/molecules/ChatInfo';
-import ChatContent from '@/components/molecules/ChatContent';
-import MessageBox from '@/components/molecules/MessageBox';
+import ChatInfo from '@/components/molecules/chats/ChatInfo';
+import ChatContent from '@/components/molecules/chats/ChatContent';
+import MessageBox from '@/components/molecules/chats/MessageBox';
 
 import { mockChatInfo, mockMessages } from '@/migrations/chat.data';
 
