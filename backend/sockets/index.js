@@ -39,29 +39,35 @@ module.exports = (io) => {
         console.log(`client ${socket.id} waiting on the queue`)
         return waiting.push(socket)
       }
-      socket.join(pair)
-      socket.emit('paired', pair.id)
+      socket.emit('roulette-paired', pair.id)
       socket.pair = pair
-      pair.join(socket.id)
-      pair.emit('paired', socket.id)
+      pair.emit('roulette-paired', socket.id)
       pair.pair = socket
       console.log(`client ${socket.id} and ${pair.id} paired on chatroulette`)
     })
 
     socket.on('roulette-message', (message) => {
-      socket.to(socket.pair).emit('message', message)
+      console.log(`client ${socket.id} sent ${message}`)
+      socket.to(socket.pair.id).emit('roulette-message', message)
     })
 
     socket.on('roulette-next', () => {
-      socket.pair.leave(socket.id)
-      socket.leave(pair.id)
-      socket.pair.emit('next')
+      socket.pair.emit('roulette-next')
+    })
+
+    socket.on('roulette-show', () => {
+      socket
+        .to(socket.pair.id)
+        .emit('roulette-show', socket.nickname, socket.seat)
+    })
+
+    socket.on('roulette-hide', () => {
+      socket.to(socket.pair.id).emit('roulette-hide')
     })
 
     socket.on('disconnecting', () => {
       if (socket.pair) {
-        socket.pair.leave(socket.id)
-        socket.pair.emit('next')
+        socket.pair.emit('roulette-next')
       }
       for (const room of socket.rooms) {
         if (room !== socket.id) {
