@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import useCredentials from "@/hooks/useCredentials";
 import { useRouter } from 'next/navigation';
+import Alert from '@/components/atoms/alerts/alert';
 
 const Login = () => {
   const [seat, setSeat] = useState('');
@@ -45,11 +46,17 @@ const Login = () => {
       <h1 className="text-2xl text-center my-8">
         Introduce tus datos para nuestras movidas:
       </h1>
-      <form className="w-auto mx-6">
+      {error &&
+        <Alert
+          text={error}
+          onClose={() => {
+            setError('')
+          }}
+        />
+      }
+      <form className="max-w-sm sm:w-96 w-64 mx-auto">
         <div className="flex flex-col w-full">
-          <label className="ml-3">
-            Asiento
-          </label>
+          <label> Asiento </label>
           <input
             type="text"
             onChange={(e) => {
@@ -58,16 +65,11 @@ const Login = () => {
             }}
             className="h-8 border-2 rounded-md border-black hover:border-primary focus-visible:border-primary p-3" />
         </div>
-        <div>
-          <label className="ml-3">
-            Nickname
-          </label>
+        <div className="mt-5 flex flex-col w-full">
+          <label> Nickname </label>
           <input type="text" value={nickname} onChange={(e) => { setNickname(e.target.value) }} className="h-8 border-2 rounded-md border-black hover:border-primary focus-visible:border-primary p-3" />
         </div>
-        <button
-          onClick={(e) => { handleSubmit(e); }}
-          type="submit"
-          className="my-5 p-3 h-12 w-auto bg-primary font-bold decoration-gray">
+        <button onClick={(e) => { handleSubmit(e); }} type="submit" className="mt-10 p-3 h-12 block mx-auto bg-primary font-bold decoration-gray">
           Acceder
         </button>
       </form>
