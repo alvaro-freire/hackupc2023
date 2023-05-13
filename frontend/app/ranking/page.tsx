@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useMemo } from 'react';
 import Image from 'next/image';
 
@@ -17,7 +19,7 @@ const Ranking = () => {
     }
     return 0;
 
-  }, [currentUserId])
+  }, [])
 
   const sortedRanks: Array<Rank> = useMemo(() => {
     return mockRanking.sort((a, b) => {
