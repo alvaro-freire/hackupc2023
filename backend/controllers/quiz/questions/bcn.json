@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "text": "In what year did the construction of the Sagrada Família begin?",
+    "text": "¿En qué año comenzó la construcción de la Sagrada Família?",
     "answers": [
       "1882",
       "1926",
@@ -11,7 +11,7 @@
   },
   {
     "id": 2,
-    "text": "What is the name of the architect who designed the Sagrada Família?",
+    "text": "¿Cómo se llama el arquitecto que diseñó la Sagrada Família?",
     "answers": [
       "Antoni Gaudí",
       "Lluís Domènech i Montaner",
@@ -21,37 +21,37 @@
   },
   {
     "id": 3,
-    "text": "What is the name of the architect who designed the Sagrada Família?",
+    "text": "¿Cómo se llama el famoso mercado de alimentos en Barcelona?",
     "answers": [
-      "Antoni Gaudí",
-      "Lluís Domènech i Montaner",
-      "Josep Puig i Cadafalch"
+      "Mercado de San Miguel",
+      "Mercado de La Boqueria",
+      "Mercado de San Antoni"
     ],
-    "correct": "Antoni Gaudí"
+    "correct": "Mercado de La Boqueria"
   },
   {
     "id": 4,
-    "text": "What is the name of the architect who designed the Sagrada Família?",
+    "text": "¿Cuál es el nombre del estadio del FC Barcelona?",
     "answers": [
-      "Antoni Gaudí",
-      "Lluís Domènech i Montaner",
-      "Josep Puig i Cadafalch"
+      "Santiago Bernabéu",
+      "Camp Nou",
+      "Wanda Metropolitano"
     ],
-    "correct": "Antoni Gaudí"
+    "correct": "Camp Nou"
   },
   {
     "id": 5,
-    "text": "What is the name of the architect who designed the Sagrada Família?",
+    "text": "¿En qué año se celebraron los Juegos Olímpicos en Barcelona?",
     "answers": [
-      "Antoni Gaudí",
-      "Lluís Domènech i Montaner",
-      "Josep Puig i Cadafalch"
+      "1992",
+      "2000",
+      "1988"
     ],
-    "correct": "Antoni Gaudí"
+    "correct": "1992"
   },
   {
     "id": 6,
-    "text": "What is the name of the architect who designed the Sagrada Família?",
+    "text": "¿Qué arquitecto diseñó el Parc Güell?",
     "answers": [
       "Antoni Gaudí",
       "Lluís Domènech i Montaner",
@@ -61,12 +61,92 @@
   },
   {
     "id": 7,
-    "text": "What is the name of the architect who designed the Sagrada Família?",
+    "text": "¿Cómo se llama el barrio gótico de Barcelona?",
     "answers": [
-      "Antoni Gaudí",
-      "Lluís Domènech i Montaner",
-      "Josep Puig i Cadafalch"
+      "El Born",
+      "El Raval",
+      "El Barri Gòtic"
     ],
-    "correct": "Antoni Gaudí"
+    "correct": "El Barri Gòtic"
+  },
+  {
+    "id": 8,
+    "text": "¿Qué famoso pintor tiene un museo dedicado a su obra en Barcelona?",
+    "answers": [
+      "Pablo Picasso",
+      "Salvador Dalí",
+      "Joan Miró"
+    ],
+    "correct": "Pablo Picasso"
+  },
+  {
+    "id": 9,
+    "text": "¿En qué montaña se encuentra el Parque de Atracciones del Tibidabo?",
+    "answers": [
+      "Montjuïc",
+      "Montserrat",
+      "Tibidabo"
+    ],
+    "correct": "Tibidabo"
+  },
+  {
+    "id": 10,
+    "text": "¿Cuál es la principal calle comercial de Barcelona?",
+    "answers": [
+      "Paseo de Gracia",
+      "Las Ramblas",
+      "Avenida Diagonal"
+    ],
+    "correct": "Paseo de Gracia"
+  },
+  {
+    "id": 11,
+    "text": "¿Qué edificio diseñó Lluís Domènech i Montaner en Barcelona?",
+    "answers": [
+      "Casa Batlló",
+      "Palau de la Música Catalana",
+      "Sagrada Família"
+    ],
+    "correct": "Palau de la Música Catalana"
+  },
+  {
+    "id": 12,
+    "text": "¿Cuál es el nombre del puerto principal de Barcelona?",
+    "answers": [
+      "Port Vell",
+      "Port de Barcelona",
+      "Port Olímpic"
+    ],
+    "correct": "Port de Barcelona"
+  },
+  {
+    "id": 13,
+    "text": "¿Cómo se llama la catedral de Barcelona?",
+    "answers": [
+      "Catedral de la Santa Cruz y Santa Eulalia",
+      "Catedral de Santa María del Mar",
+      "Catedral de Santa María de la Sede"
+    ],
+    "correct": "Catedral de la Santa Cruz y Santa Eulalia"
+  },
+  {
+    "id": 14,
+    "text": "¿Cómo se llama el parque diseñado por Jean Nouvel en Barcelona?",
+    "answers": [
+      "Parque del Clot",
+      "Parc de la Ciutadella",
+      "Parc del Centre del Poblenou"
+    ],
+    "correct": "Parc del Centre del Poblenou"
+  },
+  {
+    "id": 15,
+    "text": "¿Cuál es el nombre de la playa más popular de Barcelona?",
+    "answers": [
+      "Playa de la Barceloneta",
+      "Playa de Nova Icària",
+      "Playa de Sant Sebastià"
+    ],
+    "correct": "Playa de la Barceloneta"
   }
 ]
