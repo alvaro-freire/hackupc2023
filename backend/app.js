@@ -18,13 +18,13 @@ app.use(cors())
 
 const chatSockets = require('./sockets')
 const server = http.createServer(app)
-const io = new Server(server)
+const io = new Server(server, { cors: { origin: '*' } })
 chatSockets(io)
 
 app.get('/', (req, res) => res.send('Welcome everyone!'))
 
 loginContoller(app)
-chatrouletteContoller(app, authenticateJWT)
+chatrouletteContoller(app, authenticateJWT, io)
 quizContoller(app, authenticateJWT)
 placesContoller(app, authenticateJWT)
 transportContoller(app, authenticateJWT)
