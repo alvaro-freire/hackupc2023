@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 app.use(morgan('tiny'))
 app.use(cors())
 
-const chatSockets = require('./chatSockets')
+const chatSockets = require('./sockets')
 const server = http.createServer(app)
 const io = new Server(server)
 chatSockets(io)
@@ -29,6 +29,10 @@ quizContoller(app, authenticateJWT)
 placesContoller(app, authenticateJWT)
 transportContoller(app, authenticateJWT)
 
-app.listen(process.env.APP_PORT || 3000, function () {
-  console.log('Vueling backend listening on http://localhost:3000')
+app.listen(process.env.APP_PORT || 8080, function () {
+  console.log(
+    `Vueling backend listening on http://localhost:${
+      process.env.APP_PORT || 8080
+    }`
+  )
 })
