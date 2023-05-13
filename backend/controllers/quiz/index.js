@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const { addToLeaderboard, getLeaderboard } = require('./leaderboard')
 
 const leaderboard = []
 
@@ -37,21 +38,9 @@ module.exports = (app, authenticateJWT) => {
       return q.id.toString() === id
     }).correct
 
-    const user = leaderboard.find((u) => u.nickname === nickname)
-    if (user) {
-      user.points += result ? 5 : -2
-      user.points = Math.max(0, user.points)
-    } else {
-      leaderboard.push({
-        nickname,
-        points: result ? 5 : 0
-      })
-    }
+    addToLeaderboard(nickname, result ? 5 : -2)
 
-    // order leaderboard by points
-    leaderboard.sort((a, b) => {
-      return b.points - a.points
-    })
+    const leaderboard = getLeaderboard()
 
     const position = leaderboard.findIndex((u) => u.nickname === nickname)
 
@@ -61,5 +50,10 @@ module.exports = (app, authenticateJWT) => {
       position: position + 1,
       points: leaderboard[position].points
     })
+  })
+
+  app.get('/quiz/leaderboard', authenticateJWT, (req, res) => {
+    const leaderboard = getLeaderboard()
+    res.json(leaderboard)
   })
 }
