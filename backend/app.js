@@ -24,7 +24,7 @@ chatSockets(io)
 app.get('/', (req, res) => res.send('Welcome everyone!'))
 
 loginContoller(app)
-chatrouletteContoller(app, authenticateJWT)
+chatrouletteContoller(app, authenticateJWT, io)
 quizContoller(app, authenticateJWT)
 placesContoller(app, authenticateJWT)
 transportContoller(app, authenticateJWT)

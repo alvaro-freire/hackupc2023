@@ -1,13 +1,7 @@
 const rooms = []
 
-module.exports = (app, authenticateJWT) => {
+module.exports = (app, authenticateJWT, io) => {
   app.get('/chatroulette', authenticateJWT, (req, res) => {
-    while (true) {
-      const other = waiting.pop()
-      if (other) {
-        return res.json({ room: other })
-      }
-    }
-    res.json({ success: true })
+    res.status(200).json({ show: io.engine.clientsCount > 2 })
   })
 }
