@@ -13,7 +13,7 @@ const Ranking = () => {
     if (rank < 0) { return 0; }
     return rank + 1;
 
-  }, [currentUserId])
+  }, [])
 
   const sortedRanks: Array<Rank> = useMemo(() => {
     return mockRanking.sort((a, b) => {
@@ -21,7 +21,7 @@ const Ranking = () => {
       if (a.score < b.score) { return 1; }
       return 0;
     });
-  }, [mockRanking]);
+  }, []);
 
   return (
     <div className="flex flex-col justify-center h-full">
