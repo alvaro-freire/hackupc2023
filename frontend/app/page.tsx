@@ -1,7 +1,11 @@
-export default function Home() {
-  return (
-    <main className="h-100 w-100 flex-col items-center justify-between p-24">
+import MainBody from '@/components/MainBody'
 
+const Home = () => {
+  return (
+    <main>
+      <MainBody/>
     </main>
   )
 }
+
+export default Home;
