@@ -10,7 +10,7 @@ interface IProps {
 
 const MessageBox: React.FC<IProps> = ({ onChange, value }) => {
   return (
-    <div className="flex outline-3 outline-yellow-300 outline rounded-full px-4 items-center">
+    <div className="flex outline-3 outline-primary outline rounded-full px-4 items-center">
       <textarea
         className="w-full h-auto resize-none flex-1 outline-none"
         rows={1}

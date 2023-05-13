@@ -9,7 +9,7 @@ const leftBubble = (content: string, author: IAuthor): React.ReactElement => {
   if (!content) { return (<></>); }
   return (
     <div className="w-full flex justify-start">
-      <div className="w-80 rounded-2xl rounded-tl-none p-3 bg-[#fd0]">
+      <div className="w-80 rounded-2xl rounded-tl-none p-3 bg-accent">
         {content}
       </div>
     </div>
@@ -20,7 +20,7 @@ const rightBubble = (content: string, author: IAuthor): React.ReactElement => {
   if (!content) { return (<></>); }
   return (
     <div className="w-full flex justify-end">
-      <div className="w-80 rounded-2xl rounded-tr-none p-3 bg-[#fef8cd]">
+      <div className="w-80 rounded-2xl rounded-tr-none p-3 bg-primary">
         {content}
       </div>
     </div>
