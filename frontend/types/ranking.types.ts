@@ -1,7 +1,5 @@
 export interface Rank {
-  userId: string;
+  userid: string;
   username: string;
   score: number;
 }
-
-export type Ranking = Array<Rank>;
