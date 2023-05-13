@@ -34,11 +34,11 @@ export const QuizQuestions: Array<IQuestion> = [
                 isCorrect: true
             },
             {
-                text: '2002',
+                text: 'Jorge',
                 isCorrect: false
             },
             {
-                text: '1896',
+                text: 'Leo',
                 isCorrect: false
             }
         ]
