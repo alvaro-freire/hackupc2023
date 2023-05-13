@@ -11,14 +11,10 @@ module.exports = (app) => {
     const user = users.find((u) => u.seat === seat)
 
     if (user) {
-      dst = user.dst
-      nickname = user.nickname
+      if (nickname != user.nickname)
+        return res.status(401).json({ message: 'Invalid access data' })
     } else {
-      if (dst && nickname) {
-        users.push({ dst, nickname, seat })
-      } else {
-        return res.status(404).json({ message: 'User do not exist, create it' })
-      }
+      users.push({ nickname, seat, dst })
     }
 
     const token = jwt.sign({ dst, nickname, seat }, 'shhhhh')
