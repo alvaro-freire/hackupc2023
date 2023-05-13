@@ -1,0 +1,35 @@
+{
+  "locations": [
+    "Arc de Triomf",
+    "Barceloneta",
+    "Barrio Gótico",
+    "Ciutadella",
+    "Diagonal Mar",
+    "El Born",
+    "El Poblenou",
+    "El Raval",
+    "Eixample",
+    "Gràcia",
+    "Horta-Guinardó",
+    "La Rambla",
+    "Les Corts",
+    "Montjuic",
+    "Nou Barris",
+    "Paseo de Gracia",
+    "Park Güell",
+    "Plaza Cataluña",
+    "Plaza España",
+    "Sagrada Familia",
+    "Sant Andreu",
+    "Sant Martí",
+    "Sants-Montjuic",
+    "Sarrià-Sant Gervasi",
+    "Vila de Gràcia"
+  ],
+  "methods": [
+    "Taxi",
+    "Car",
+    "Walking",
+    "Bicycle"
+  ]
+}
