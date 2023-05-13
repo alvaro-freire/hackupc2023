@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="h-full flex flex-col gap-2 pr-4 pl-4 pb-5 ">
+        <div className="h-full flex flex-col gap-2 pb-5 ">
           <LayoutCredentialProvider>
             <MainHeader />
             {children}
