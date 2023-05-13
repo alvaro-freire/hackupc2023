@@ -22,6 +22,6 @@ module.exports = (app, authenticateJWT) => {
       .update(`${location}:${method}`)
       .digest('hex')
 
-    return res.send({ room: hash })
+    return res.send({ room: hash, location, method })
   })
 }
