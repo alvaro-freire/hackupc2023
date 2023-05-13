@@ -11,6 +11,12 @@ export interface IIndividualChatInfo {
   user: IAuthor;
 }
 
+export interface ITransportChatInfo {
+  id: string;
+  destination: string;
+  method: string;
+}
+
 export interface IMessage {
   id: string;
   author: IAuthor;
