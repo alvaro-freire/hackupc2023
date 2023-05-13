@@ -1,4 +1,4 @@
-import { IAuthor, IIndividualChatInfo, IMessage } from '@/types/chat.types';
+import { IAuthor, IIndividualChatInfo, IMessage, ITransportChatInfo } from '@/types/chat.types';
 export const defAuthor: IAuthor = {
   username: 'uriel',
   userId: '2',
@@ -18,6 +18,12 @@ export const mockChatInfo: IIndividualChatInfo = {
   name: 'new Chat',
   user: defAuthor
 };
+
+export const mockTransportChatInfo: ITransportChatInfo = {
+  id: '1213123',
+  destination: 'Sagrada familia',
+  method: 'taxi'
+}
 
 
 
