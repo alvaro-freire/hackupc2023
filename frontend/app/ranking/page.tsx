@@ -8,12 +8,16 @@ const currentUserId: string = '1';
 
 const Ranking = () => {
   const currentPosition = useMemo(() => {
-    const rank: number = mockRanking.findIndex((el: Rank) => el.userid === currentUserId);
+    if (currentUserId) {
 
-    if (rank < 0) { return 0; }
-    return rank + 1;
+      const rank: number = mockRanking.findIndex((el: Rank) => el.userid === currentUserId);
 
-  }, [])
+      if (rank < 0) { return 0; }
+      return rank + 1;
+    }
+    return 0;
+
+  }, [currentUserId])
 
   const sortedRanks: Array<Rank> = useMemo(() => {
     return mockRanking.sort((a, b) => {
@@ -55,12 +59,20 @@ const Ranking = () => {
                 <tr key={rank.userid} className="border-b-2 border-primary border-solid">
                   <td className="p-2">
                     <span className="flex items-center justify-start gap-2">
-                      {rank.username}
+                      {rank.userid === currentUserId
+                        ? (<strong>{rank.username}</strong>)
+                        : rank.username
+                      }
+
                     </span>
                   </td>
                   <td className="p-2">
                     <span className="flex items-center justify-center gap-2">
-                      {rank.score}
+
+                      {rank.userid === currentUserId
+                        ? (<strong>{rank.score}</strong>)
+                        : rank.score
+                      }
                     </span>
                   </td>
                 </tr>
