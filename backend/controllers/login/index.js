@@ -4,7 +4,9 @@ const users = []
 
 module.exports = (app) => {
   app.post('/login', (req, res) => {
-    let { dst, nickname, seat } = req.body
+    let { nickname, seat } = req.body
+
+    const dst = 'bcn'
 
     const user = users.find((u) => u.seat === seat)
 
