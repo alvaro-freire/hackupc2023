@@ -27,10 +27,12 @@ const Login = () => {
 
       const { token } = json;
 
+      console.warn(token);
+      console.warn(seat, nickname);
       credentials.setToken(token);
+      credentials.setSeat(seat);
+      credentials.setNickname(nickname);
       router.push('/');
-
-      console.log(token);
     } catch (e: any) {
       setSeat('');
       setNickname('');
@@ -40,7 +42,6 @@ const Login = () => {
 
   return (
     <div className="w-full">
-      {credentials.token}
       <h1 className="text-2xl text-center my-8">
         Introduce tus datos para nuestras movidas:
       </h1>
@@ -49,7 +50,13 @@ const Login = () => {
           <label className="ml-3">
             Asiento
           </label>
-          <input type="text" value={seat} onChange={(e) => { setSeat(e.target.value) }} className="h-8 border-2 rounded-md border-black hover:border-primary focus-visible:border-primary p-3" />
+          <input
+            type="text"
+            onChange={(e) => {
+              console.log(e.target.value);
+              setSeat(e.target.value);
+            }}
+            className="h-8 border-2 rounded-md border-black hover:border-primary focus-visible:border-primary p-3" />
         </div>
         <div>
           <label className="ml-3">

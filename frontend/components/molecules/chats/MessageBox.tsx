@@ -5,10 +5,11 @@ import Image from 'next/image';
 
 interface IProps {
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onSend?: () => void;
   value?: string;
 }
 
-const MessageBox: React.FC<IProps> = ({ onChange, value }) => {
+const MessageBox: React.FC<IProps> = ({ onChange, value, onSend }) => {
   return (
     <div className="flex outline-3 outline-primary outline rounded-full px-4 items-center">
       <textarea
@@ -17,9 +18,14 @@ const MessageBox: React.FC<IProps> = ({ onChange, value }) => {
         onChange={(e) => { onChange?.(e) }}
         value={value}
       ></textarea>
-      <Image src="/icons/send.svg" height={40} width={40} alt="logo_vueling" />
+      <button
+        className="outline-none border-none pointer"
+        onClick={() => { onSend?.(); }}
+      >
+        <Image src="/icons/send.svg" height={40} width={40} alt="logo_vueling" />
+      </button>
 
-    </div>
+    </div >
   );
 }
 

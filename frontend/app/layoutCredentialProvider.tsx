@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { CredentialsContext } from '@/hooks/useCredentials'
 import { usePathname, useRouter } from 'next/navigation';
@@ -13,21 +13,21 @@ const layoutServer: React.FC<IProps> = ({ children }) => {
   const pathname = usePathname();
   const router = useRouter();
 
-  const [token, setTocken] = useLocalStorage<string>('token', '');
+  const [token, setToken] = useLocalStorage<string>('token', '');
   const [nickname, setNickname] = useLocalStorage<string>('nickname', '');
   const [seat, setSeat] = useLocalStorage<string>('seat', '');
 
-  const handleChangeTocken = useCallback((value: string) => {
-    setTocken(value);
-  }, []);
+  const handleChangeTocken = (value: string) => {
+    setToken(() => value);
+  };
 
-  const handleChangeNickname = useCallback((value: string) => {
-    setNickname(value);
-  }, []);
+  const handleChangeNickname = (value: string) => {
+    setNickname(() => value);
+  };
 
-  const handleChangeSeat = useCallback((value: string) => {
-    setSeat(value);
-  }, []);
+  const handleChangeSeat = (value: string) => {
+    setSeat(() => value);
+  };
 
   useEffect(() => {
     if (pathname !== '/login' && !token) {

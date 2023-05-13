@@ -1,8 +1,7 @@
 export interface IAuthor {
   username: string;
   userId: string;
-  seat: number;
-  seatLetter: string;
+  seat: string;
 }
 
 export interface IIndividualChatInfo {

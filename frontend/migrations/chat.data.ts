@@ -2,15 +2,13 @@ import { IAuthor, IIndividualChatInfo, IMessage, ITransportChatInfo } from '@/ty
 export const defAuthor: IAuthor = {
   username: 'uriel',
   userId: '2',
-  seat: 25,
-  seatLetter: 'F'
+  seat: '11B'
 };
 
 export const defOrigin: IAuthor = {
   username: 'uriel',
   userId: '1',
-  seat: 25,
-  seatLetter: 'F'
+  seat: '25F',
 };
 
 export const mockChatInfo: IIndividualChatInfo = {

@@ -3,7 +3,7 @@
 import React, { useMemo } from 'react';
 import { IMessage, IAuthor } from '@/types/chat.types';
 
-const mockCurrentUser: string = '1';
+import useCredentials from '@/hooks/useCredentials';
 
 const leftBubble = (content: string, author: IAuthor): React.ReactElement => {
   if (!content) { return (<></>); }
@@ -28,14 +28,15 @@ const rightBubble = (content: string, author: IAuthor): React.ReactElement => {
 };
 
 const Message: React.FC<IMessage> = ({ author, content }) => {
+  const { seat } = useCredentials();
   const isHostUser = useMemo(() => {
-    if (mockCurrentUser != author.userId) {
+    if (seat != author.seat) {
       return false;
     }
 
     return true;
 
-  }, [mockCurrentUser]);
+  }, [seat]);
 
   return (
     <>

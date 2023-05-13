@@ -18,6 +18,7 @@ module.exports = (io) => {
       socket
         .to(socket.transportRoom)
         .emit('message', socket.nickname, socket.seat, message)
+      console.log('message', socket.nickname, socket.seat, message)
     })
 
     socket.on('set-data', (nickname, seat) => {
@@ -33,8 +34,7 @@ module.exports = (io) => {
 
   io.listen(process.env.SOCKET_PORT || 4000)
   console.log(
-    `Vueling sockets listening on http://localhost:${
-      process.env.SOCKET_PORT || 4000
+    `Vueling sockets listening on http://localhost:${process.env.SOCKET_PORT || 4000
     }`
   )
 }

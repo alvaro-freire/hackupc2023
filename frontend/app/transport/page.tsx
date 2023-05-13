@@ -13,7 +13,6 @@ const Transport: React.FC = () => {
       <Subheading className="pt-3">
         Share your ride, save money!
       </Subheading>
-
       <TransportForm />
     </div>
   );
