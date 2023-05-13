@@ -1,32 +1,40 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { CredentialsContext } from '@/hooks/useCredentials'
-
-export const metadata = {
-  title: 'Vueling',
-  description: 'An in air entertainment system'
-}
+import { usePathname, useRouter } from 'next/navigation';
 
 interface IProps {
   children: React.ReactNode
 }
 
 const layoutServer: React.FC<IProps> = ({ children }) => {
+  const pathname = usePathname();
+  const router = useRouter();
 
   const [tocken, setTocken] = useState<string>('');
   const [nickname, setNickname] = useState<string>('');
   const [seat, setSeat] = useState<string>('');
 
-  const handleChangeTocken = (value: string) => {
+  const handleChangeTocken = useCallback((value: string) => {
     setTocken(value);
-  }
-  const handleChangeNickname = (value: string) => {
+  }, []);
+
+  const handleChangeNickname = useCallback((value: string) => {
     setNickname(value);
-  }
-  const handleChangeSeat = (value: string) => {
+  }, []);
+
+  const handleChangeSeat = useCallback((value: string) => {
     setSeat(value);
-  }
+  }, []);
+
+  useEffect(() => {
+    if (pathname !== '/login' && !tocken) {
+      router.push('/login');
+    }
+  }, [pathname]);
+
+
   return (
     <>
       <CredentialsContext.Provider value={{

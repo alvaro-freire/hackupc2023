@@ -3,6 +3,11 @@ import MainFooter from '@/components/atoms/typography/MainFooter'
 
 import LayoutCredentialProvider from './layoutCredentialProvider';
 
+export const metadata = {
+  title: 'Vueling',
+  description: 'An in air entertainment system'
+}
+
 import { Inter } from 'next/font/google'
 import './globals.css'
 const inter = Inter({ subsets: ['latin'] })

@@ -17,7 +17,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3002/login', {
+      const response = await fetch('http://localhost:8080/login', {
         method: 'POST',
         body: JSON.stringify({ seat, nickname })
       });
@@ -40,7 +40,7 @@ const Login = () => {
 
   return (
     <div className="w-full">
-      { credentials.token }
+      {credentials.token}
       <h1 className="text-2xl text-center my-8">
         Introduce tus datos para nuestras movidas:
       </h1>
@@ -49,20 +49,20 @@ const Login = () => {
           <label className="ml-3">
             Asiento
           </label>
-          <input type="text" value={seat} onChange={(e) => {setSeat(e.target.value)}} className="h-8 border-2 rounded-md border-black hover:border-primary focus-visible:border-primary p-3"/>
+          <input type="text" value={seat} onChange={(e) => { setSeat(e.target.value) }} className="h-8 border-2 rounded-md border-black hover:border-primary focus-visible:border-primary p-3" />
         </div>
         <div>
           <label className="ml-3">
             Nickname
           </label>
-          <input type="text" value={nickname} onChange={(e) => {setNickname(e.target.value)}} className="h-8 border-2 rounded-md border-black hover:border-primary focus-visible:border-primary p-3"/>
+          <input type="text" value={nickname} onChange={(e) => { setNickname(e.target.value) }} className="h-8 border-2 rounded-md border-black hover:border-primary focus-visible:border-primary p-3" />
         </div>
         <button
           onClick={(e) => { handleSubmit(e); }}
           type="submit"
           className="my-5 p-3 h-12 w-auto bg-primary font-bold decoration-gray">
-            Acceder
-            </button>
+          Acceder
+        </button>
       </form>
     </div>
   )
