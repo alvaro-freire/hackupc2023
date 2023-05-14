@@ -1,7 +1,7 @@
 const MainFooter: React.FC = () => {
     return (
       <div className="flex justify-center my-4">
-        <p>blabla credits</p>
+        <p>Vueling Airlines &copy; 2023</p>
       </div>
     )
   }
