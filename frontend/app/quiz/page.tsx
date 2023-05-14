@@ -10,6 +10,7 @@ const Quiz = () => {
     const credentials = useCredentials();
 
     const [score, setScore] = useState(0);
+    const [position, setPosition] = useState(0);
     const [questions, setQuestions] = useState<IQuestion[]>([]);
     const [questionId, setQuestionId] = useState(0);
     const [wasAnswered, setWasAnswered] = useState(false);
@@ -66,19 +67,22 @@ const Quiz = () => {
     }
 
     const handleAnswer = async (answer: string, idx: number) => {
-        const response = getAnswer(answer);
-        response.then((response) => {
-            return response.json();
-        }).then((data) => {
-            const { result, correct, position, points } = data;
-            setWasAnswered(true);
-            setSelected(idx);
-            setWasCorrect(result);
-            setCorrect(correct);
-            setScore(Number(points));
-        }).catch((e) => {
-            console.log(e.message);
-        });
+        if (!wasAnswered) {
+            const response = getAnswer(answer);
+            response.then((response) => {
+                return response.json();
+            }).then((data) => {
+                const { result, correct, position, points } = data;
+                setWasAnswered(true);
+                setSelected(idx);
+                setWasCorrect(result);
+                setCorrect(correct);
+                setScore(Number(points));
+                setPosition(Number(position));
+            }).catch((e) => {
+                console.log(e.message);
+            });
+        }
     }
 
     const question = useMemo(() => {
@@ -94,10 +98,16 @@ const Quiz = () => {
 
     return (
         <div className="flex flex-col justify-center items-center my-3">
-            <span className="flex items-center justify-center gap-2 text-2xl">
-                <Image src="/icons/star.svg" height={20} width={20} alt="leaderboard_star_icon" />
-                {score} pts
-            </span>
+            <div className="flex flex-row justify-evenly items-center w-full">
+                <span className="flex items-center justify-center gap-2 text-2xl">
+                    <Image src="/icons/leaderboard.svg" height={20} width={20} alt="leaderboard_icon" />
+                    {position}
+                </span>
+                <span className="flex items-center justify-center gap-2 text-2xl">
+                    <Image src="/icons/star.svg" height={20} width={20} alt="leaderboard_star_icon" />
+                    {score} pts
+                </span>
+            </div>
             <h1 className="text-2xl m-5">{question.text}</h1>
             <div className="flex flex-col justify-center items-center w-full px-5">
                 {question.answers &&
