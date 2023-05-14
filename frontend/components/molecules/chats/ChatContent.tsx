@@ -10,7 +10,7 @@ interface IProps {
 
 const ChatContent: React.FC<IProps> = ({ messages }) => {
   return (
-    <div className="w-full flex flex-col pr-5 pl-5 flex-1 overflow-auto gap-2 min-h-[300px]">
+    <div className="w-full mb-2 flex flex-col pr-5 pl-5 flex-1 overflow-auto gap-2 min-h-[300px] h-[300px]">
       {messages.map((message: IMessage | string) => {
         return (
           <>
