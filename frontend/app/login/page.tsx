@@ -55,7 +55,7 @@ const Login = () => {
           }}
         />
       }
-      <form className="max-w-sm sm:w-96 w-64 mx-auto">
+      <form className="max-w-md w-64 mx-auto">
         <div className="flex flex-col w-full">
           <label> Asiento </label>
           <input

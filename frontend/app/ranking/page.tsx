@@ -1,33 +1,46 @@
 'use client'
 
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo, useState, useEffect } from 'react';
 import Image from 'next/image';
 
-import { mockRanking } from '@/migrations/ranking.data';
 import { Rank } from '@/types/ranking.types';
+import useCredentials from '@/hooks/useCredentials';
 
-const currentUserId: string = '1';
+const Ranking: React.FC = () => {
+  const credentials = useCredentials();
+  const [ranking, setRanking] = useState([]);
 
-const Ranking = () => {
-  const currentPosition = useMemo(() => {
-    if (currentUserId) {
-
-      const rank: number = mockRanking.findIndex((el: Rank) => el.userid === currentUserId);
-
-      if (rank < 0) { return 0; }
-      return rank + 1;
+  const getRanking = useCallback(async (token: string) => {
+    try {
+      const response = await fetch('http://localhost:8080/quiz/leaderboard', {
+        method: 'GET',
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      });
+      if (!response.ok) {
+        setRanking([]);
+      }
+      const json = await response.json();
+      setRanking(() => json);
+    } catch {
+      setRanking([]);
     }
-    return 0;
-
-  }, [])
-
-  const sortedRanks: Array<Rank> = useMemo(() => {
-    return mockRanking.sort((a, b) => {
-      if (a.score > b.score) { return -1; }
-      if (a.score < b.score) { return 1; }
-      return 0;
-    });
   }, []);
+
+  useEffect(() => {
+    if (credentials.token) {
+      getRanking(credentials.token);
+    }
+  }, [getRanking, credentials.token]);
+
+  const currentPosition = useMemo(() => {
+    if (credentials.nickname) {
+      const index = ranking.findIndex((rank: Rank) => rank.nickname === credentials.nickname);
+      return index + 1;
+    }
+
+  }, [credentials.nickname, ranking]);
 
   return (
     <div className="flex flex-col justify-center h-full">
@@ -37,7 +50,7 @@ const Ranking = () => {
           {currentPosition}
         </span>
       </div>
-      <div className="flex-1 w-full mt-5 overflow-auto px-5">
+      <div className="flex-1 mt-5 w-72 sm:w-96 overflow-auto mx-auto">
         <table className="w-full">
           <thead>
             <tr >
@@ -56,24 +69,22 @@ const Ranking = () => {
             </tr>
           </thead>
           <tbody>
-            {sortedRanks.map((rank: Rank) => {
+            {ranking.map((rank: Rank) => {
               return (
-                <tr key={rank.userid} className="border-b-2 border-primary border-solid">
+                <tr key={rank.nickname} className="border-b-2 border-primary border-solid">
                   <td className="p-2">
                     <span className="flex items-center justify-start gap-2">
-                      {rank.userid === currentUserId
-                        ? (<strong>{rank.username}</strong>)
-                        : rank.username
+                      {rank.nickname === credentials.nickname
+                        ? (<strong>{rank.nickname}</strong>)
+                        : rank.nickname
                       }
-
                     </span>
                   </td>
                   <td className="p-2">
                     <span className="flex items-center justify-center gap-2">
-
-                      {rank.userid === currentUserId
-                        ? (<strong>{rank.score}</strong>)
-                        : rank.score
+                      {rank.nickname === credentials.nickname
+                        ? (<strong>{rank.points}</strong>)
+                        : rank.points
                       }
                     </span>
                   </td>

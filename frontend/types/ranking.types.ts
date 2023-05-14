@@ -1,5 +1,4 @@
 export interface Rank {
-  userid: string;
-  username: string;
-  score: number;
+  nickname: string;
+  points: number;
 }
