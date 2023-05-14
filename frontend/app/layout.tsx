@@ -4,8 +4,8 @@ import MainFooter from '@/components/atoms/typography/MainFooter'
 import LayoutCredentialProvider from './layoutCredentialProvider';
 
 export const metadata = {
-  title: 'Vueling',
-  description: 'An in air entertainment system'
+  title: 'Vueling - In flight entertainment',
+  description: 'In flight entertainment system'
 }
 
 import { Inter } from 'next/font/google'
