@@ -122,7 +122,7 @@ const Quiz = () => {
                 }
                 {questionId === questions.length - 1 &&
                     <Link href="/ranking" className="flex justify-center items-center text-m h-10 w-full my-2 bg-[#fd0] border-[#e0c308] border-2">
-                        <button>Submit score</button>
+                        <button>Finish quiz</button>
                     </Link>
                 }
                 <Link href="/ranking" className="flex justify-center items-center text-m h-10 w-full my-2 bg-[#fd0] border-[#e0c308] border-2">
