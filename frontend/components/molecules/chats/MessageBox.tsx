@@ -16,6 +16,12 @@ const MessageBox: React.FC<IProps> = ({ onChange, value, onSend }) => {
         className="w-full h-auto resize-none flex-1 outline-none"
         rows={1}
         onChange={(e) => { onChange?.(e) }}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            onSend?.();
+          }
+        }}
         value={value}
       ></textarea>
       <button

@@ -104,7 +104,7 @@ const Chat: React.FC = () => {
   }, []);
 
   return (
-    <div className="pl-4 pr-4">
+    <div className="pl-4 pr-4 max-w-lg w-96 mx-auto">
       <ChatInfo
         id=""
         user={user}

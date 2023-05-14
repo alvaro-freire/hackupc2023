@@ -44,7 +44,7 @@ const Destination: React.FC = () => {
   if (!currentPointOfInterest) { return (<></>); }
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 max-w-lg w-96 mx-auto">
       <div className="overflow-hidden relative w-full h-70">
         <button
           className="absolute left-0 w-[50%] h-full outline-none border-none pointer flex justify-end items-center rotate-180"

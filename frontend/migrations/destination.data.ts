@@ -13,9 +13,9 @@ export const mockSingleDestination: IDestination = {
     },
     {
       id: '2',
-      name: 'Something something',
+      name: 'Barrio Gótico',
       rating: 4,
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis saepe obcaecati deserunt sunt, voluptatibus voluptate debitis eos iusto quos praesentium rerum mollitia impedit provident possimus.',
+      description: 'The Gothic Quarter is the centre of the old city of Barcelona. It stretches from La Rambla to Via Laietana, and from the Mediterranean seafront to Ronda de Sant Pere. It is a part of Ciutat Vella district.',
       landingImage: '/destinationImages/bcn/barrioGotico1.jpg'
     }
   ]

@@ -27,7 +27,7 @@ const SelectInput: React.FC<IProps> = ({
         <label htmlFor={labelFor} className="text-xl"> {label} </label>
       )}
       <select
-        className={`w-full border-none outline-none outline-solid outline-2 outline-primary rounded-sm p-2 bg-white ${className}`}
+        className={`w-full mt-2 border-none outline-none outline-solid outline-2 outline-primary rounded-sm p-2 bg-white ${className}`}
         onChange={(e) => { onChange?.(e); }}
         value={value || ''}
         id={labelFor ? labelFor : ''}

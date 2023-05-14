@@ -1,5 +1,5 @@
 const Loading = () => {
-    return(
+    return (
         <p>Loading...</p>
     );
 }

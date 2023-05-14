@@ -97,7 +97,7 @@ const Quiz = () => {
     }, [questions, questionId]);
 
     return (
-        <div className="flex flex-col justify-center items-center my-3">
+        <div className="flex flex-col justify-center text-center items-center my-3 max-w-lg w-96 mx-auto">
             <div className="flex flex-row justify-evenly items-center w-full">
                 <span className="flex items-center justify-center gap-2 text-2xl">
                     <Image src="/icons/leaderboard.svg" height={20} width={20} alt="leaderboard_icon" />
