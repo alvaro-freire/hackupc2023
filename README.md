@@ -37,24 +37,37 @@ npm run dev
 
 ## Screenshots
 
-![Main menu](./img/menu.png)
+
+<p align="center">
+  <img align="center" width="150" src="./img/menu.png">
+</p>
 
 ---
 
-![ChatRoulette](./img/chatroulette.png)
+<p align="center">
+  <img align="center" width="150" src="./img/chatroulette.png">
+</p>
 
 ---
 
-![Quiz](./img/quiz.png)
+<p align="center">
+  <img align="center" width="150" src="./img/quiz.png">
+</p>
 
 ---
 
-![Leaderboard](./img/leaderboard.png)
+<p align="center">
+  <img align="center" width="150" src="./img/leaderboard.png">
+</p>
 
 ---
 
-![Transport](./img/transport.png)
+<p align="center">
+  <img align="center" width="150" src="./img/transport.png">
+</p>
 
 ---
 
-![Info](./img/info.png)
+<p align="center">
+  <img align="center" width="150" src="./img/info.png">
+</p>
