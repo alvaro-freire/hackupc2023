@@ -11,11 +11,11 @@ interface IProps {
 
 const Chat: React.FC<IProps> = () => {
   return (
-    <>
+    <div className="pl-4 pr-4 flex gap-10 flex-col">
       <ChatInfo {...mockChatInfo} />
       <ChatContent messages={mockMessages} />
       <MessageBox />
-    </>
+    </div>
   );
 }
 
