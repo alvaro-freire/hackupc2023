@@ -9,7 +9,7 @@ const leftBubble = (content: string, author: IAuthor): React.ReactElement => {
   if (!content) { return (<></>); }
   return (
     <div className="w-full flex flex-col justify-end w-80 rounded-2xl rounded-tl-none p-3 bg-accent">
-      <span className="text-sm"> {author.username}({author.seat})</span>
+      <span className="text-sm"> {author.username}{author.seat ? ` (${author.seat}) ` : ''}</span>
       <div className="">
         {content}
       </div>
@@ -21,7 +21,7 @@ const rightBubble = (content: string, author: IAuthor): React.ReactElement => {
   if (!content) { return (<></>); }
   return (
     <div className="w-full flex flex-col justify-end w-80 rounded-2xl rounded-tr-none p-3 bg-primary">
-      <span className="text-sm"> {author.username}({author.seat})</span>
+      <span className="text-sm"> {author.username}{author.seat ? ` (${author.seat}) ` : ''}</span>
       <div>
         {content}
       </div>

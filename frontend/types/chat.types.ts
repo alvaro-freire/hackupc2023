@@ -6,7 +6,6 @@ export interface IAuthor {
 
 export interface IIndividualChatInfo {
   id: string;
-  name: string;
   user: IAuthor;
 }
 
