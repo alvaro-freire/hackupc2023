@@ -1,6 +1,8 @@
 # Vueling, in flight entertainment - HackUPC 2023 submission
 
-<img align="center" src="./img/main.png">
+<p align="center">
+  <img align="center" src="./img/main.png">
+</p>
 
 Vueling's in-flight app that offers ChatRoulette, quizzes, ride-sharing chatrooms, and destination info. Enhance your travel experience today!
 
